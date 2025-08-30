@@ -1,16 +1,12 @@
-# Это пример Python скрипта.
+with open('input.txt', 'r') as f:
+    N = int(f.readline().strip())
 
-# Нажмите Ctrl+F5 для выполнения или замените его своим кодом.
-# Нажмите Двойное нажатие Shift для поиска везде: классы, файлы, окна инструментов, действия и настройки.
+# Подсчет количества единиц для каждого числа от 0 до N
+results = []
+for num in range(0, N + 1):
+    count_ones = bin(num).count('1')
+    results.append(str(count_ones))
 
-
-def print_hi(name):
-    # Используйте точку останова в строке кода ниже для отладки скрипта.
-    print(f'Hi, {name}')  # Нажмите F9 для переключения точки останова.
-
-
-# Нажмите зеленую кнопку на полях для запуска скрипта.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# Справка PyCharm доступна на https://www.jetbrains.com/help/pycharm/
+# Запись результата
+with open('output.txt', 'w') as f:
+    f.write('\n'.join(results))
